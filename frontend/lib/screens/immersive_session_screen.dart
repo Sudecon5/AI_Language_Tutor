@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'dart:convert';
 import 'practice_dashboard_screen.dart';
@@ -51,13 +52,17 @@ class _ImmersiveSessionScreenState extends State<ImmersiveSessionScreen> {
     super.dispose();
   }
 
-  // 1. Start capturing microphone input
+  // 1. Start capturing microphone input using a valid temporary file path
   Future<void> _startRecording() async {
     try {
       if (await _audioRecorder.hasPermission()) {
+        // Fetch a valid temporary path on Android/iOS using path_provider
+        final directory = await getTemporaryDirectory();
+        final filePath = '${directory.path}/audio_record_${DateTime.now().millisecondsSinceEpoch}.m4a';
+
         await _audioRecorder.start(
           const RecordConfig(),
-          path: '',
+          path: filePath,
         );
         setState(() {
           _isRecording = true;
