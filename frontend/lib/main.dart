@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'screens/auth_screen.dart';
 import 'screens/tutor_home_screen.dart';
@@ -11,16 +11,16 @@ import 'screens/settings_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Load environment variables from the .env file
-  await dotenv.load(fileName: ".env");
+  // Use compile-time environment variables (safe for Web & Mobile)
+  const supabaseUrl = String.fromEnvironment('SUPABASE_URL', defaultValue: 'YOUR_SUPABASE_URL');
+  const supabaseAnonKey = String.fromEnvironment('SUPABASE_ANON_KEY', defaultValue: 'YOUR_SUPABASE_ANON_KEY');
 
-  // Initialize Supabase securely using the .env variables
   await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL'] ?? '',
-    anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? '',
+    url: supabaseUrl,
+    publishableKey: supabaseAnonKey,
   );
 
-  runApp(const LanguageTutorApp());
+  runApp(const ProviderScope(child: LanguageTutorApp()));
 }
 
 // Global accessor for Supabase

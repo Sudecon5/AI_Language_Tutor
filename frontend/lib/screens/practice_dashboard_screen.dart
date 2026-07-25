@@ -4,6 +4,13 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+class ApiConfig {
+  static const String baseUrl = String.fromEnvironment(
+    'BACKEND_URL',
+    defaultValue: 'https://ai-language-tutor-ufnc.onrender.com',
+  );
+}
+
 // ---------------------------------------------------------
 // 0. MAIN APPLICATION ENTRY POINT
 // ---------------------------------------------------------
@@ -174,7 +181,7 @@ class _PracticeDashboardScreenState extends State<PracticeDashboardScreen> {
   Future<void> _fetchProgressData() async {
     try {
       final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/tutor/progress'),
+        Uri.parse('${ApiConfig.baseUrl}/api/v1/tutor/progress'),
       );
 
       if (response.statusCode == 200) {
@@ -203,7 +210,7 @@ class _PracticeDashboardScreenState extends State<PracticeDashboardScreen> {
 
     try {
       final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/tutor/random-flashcard'),
+        Uri.parse('${ApiConfig.baseUrl}/api/v1/tutor/random-flashcard'),
       );
 
       if (response.statusCode == 200) {
@@ -235,7 +242,7 @@ class _PracticeDashboardScreenState extends State<PracticeDashboardScreen> {
 
     try {
       final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/tutor/random-quiz'),
+        Uri.parse('${ApiConfig.baseUrl}/api/v1/tutor/random-quiz'),
       );
 
       if (response.statusCode == 200) {

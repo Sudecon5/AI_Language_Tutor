@@ -14,6 +14,8 @@ dependencies:
   google_fonts: ^8.2.0
   supabase_flutter: ^2.6.0
   flutter_dotenv: ^5.2.1
+  url_launcher: ^6.2.5
+  flutter_riverpod: ^3.3.2
 
 dev_dependencies:
   flutter_test:
@@ -23,5 +25,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  assets:
+assets:
     - .env

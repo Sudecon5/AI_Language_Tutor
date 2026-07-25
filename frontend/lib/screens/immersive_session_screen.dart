@@ -27,6 +27,12 @@ class _ImmersiveSessionScreenState extends State<ImmersiveSessionScreen> {
   // Stores conversation history including feedback corrections
   final List<Map<String, dynamic>> _messages = [];
 
+  // Centralized base URL configuration mapping to your live Render backend
+  static const String _baseUrl = String.fromEnvironment(
+    'BACKEND_URL',
+    defaultValue: 'https://ai-language-tutor-ufnc.onrender.com',
+  );
+
   @override
   void initState() {
     super.initState();
@@ -50,7 +56,7 @@ class _ImmersiveSessionScreenState extends State<ImmersiveSessionScreen> {
     try {
       if (await _audioRecorder.hasPermission()) {
         await _audioRecorder.start(
-          const RecordConfig(), // Cleaned up to use default encoder configuration
+          const RecordConfig(),
           path: '',
         );
         setState(() {
@@ -62,7 +68,7 @@ class _ImmersiveSessionScreenState extends State<ImmersiveSessionScreen> {
     }
   }
 
-  // 2. Stop recording and upload the audio file to FastAPI backend
+  // 2. Stop recording and upload the audio file to your live Render backend
   Future<void> _stopRecordingAndSend() async {
     try {
       final path = await _audioRecorder.stop();
@@ -74,7 +80,7 @@ class _ImmersiveSessionScreenState extends State<ImmersiveSessionScreen> {
       if (path != null) {
         var request = http.MultipartRequest(
           'POST',
-          Uri.parse('http://localhost:8000/api/v1/tutor/chat'),
+          Uri.parse('$_baseUrl/api/v1/tutor/chat'),
         );
 
         if (kIsWeb) {
@@ -184,7 +190,7 @@ class _ImmersiveSessionScreenState extends State<ImmersiveSessionScreen> {
                             fontSize: 15,
                           ),
                         ),
-                        // Render optional grammar/spelling correction feedback if provided by Llama
+                        // Render optional grammar/spelling correction feedback if provided
                         if (msg['correction'] != null) ...[
                           const SizedBox(height: 8),
                           Container(

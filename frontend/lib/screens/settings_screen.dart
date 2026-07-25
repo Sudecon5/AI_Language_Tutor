@@ -4,6 +4,14 @@ import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert';
 import '../main.dart';
 
+// Configuration helper to switch between local development and your live Render URL
+class ApiConfig {
+  static const String baseUrl = String.fromEnvironment(
+    'BACKEND_URL',
+    defaultValue: 'http://127.0.0.1:8000',
+  );
+}
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -25,7 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _fetchUserSettings() async {
     try {
       final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/tutor/progress'),
+        Uri.parse('${ApiConfig.baseUrl}/api/v1/tutor/progress'),
       );
 
       if (response.statusCode == 200) {
@@ -47,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _updateBackendPreferences(String newLanguage, String newPace) async {
     try {
       await http.post(
-        Uri.parse('http://localhost:8000/api/v1/tutor/update-preferences'),
+        Uri.parse('${ApiConfig.baseUrl}/api/v1/tutor/update-preferences'),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({
           "primary_language": newLanguage,
@@ -72,21 +80,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
         backgroundColor: const Color(0xFF1A1D24),
         title: Text('Edit $title', style: const TextStyle(color: Colors.white)),
         content: StatefulBuilder(
-          builder: (context, setDialogState) => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: options.map((option) {
-              return RadioListTile<String>(
-                title: Text(option, style: const TextStyle(color: Colors.white)),
-                value: option,
-                groupValue: selectedValue,
-                activeColor: const Color(0xFFD4AF37),
-                onChanged: (value) {
-                  setDialogState(() {
-                    selectedValue = value!;
-                  });
-                },
-              );
-            }).toList(),
+          builder: (context, setDialogState) => RadioGroup<String>(
+            groupValue: selectedValue,
+            onChanged: (value) {
+              if (value != null) {
+                setDialogState(() {
+                  selectedValue = value;
+                });
+              }
+            },
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: options.map((option) {
+                return RadioListTile<String>(
+                  title: Text(option, style: const TextStyle(color: Colors.white)),
+                  value: option,
+                  activeColor: const Color(0xFFD4AF37),
+                );
+              }).toList(),
+            ),
           ),
         ),
         actions: [
@@ -213,7 +225,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  // Wrapped in Material widget to provide proper background context and ink splash targets for ListTiles
   Widget _buildSettingsItem(String title, {required VoidCallback onTap}) {
     return Container(
       margin: const EdgeInsets.only(bottom: 6),
