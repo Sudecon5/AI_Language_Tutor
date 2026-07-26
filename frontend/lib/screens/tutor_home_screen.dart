@@ -14,8 +14,8 @@ class _TutorHomeScreenState extends State<TutorHomeScreen> {
 
   final List<Map<String, String>> tutors = const [
     {
-      'name': 'Herr Klaus',
-      'specialty': 'German Lehrer',
+      'name': 'Frau Klaus',
+      'specialty': 'German Lehrerin',
       'expertise': 'Casual German, History',
       'image': 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
     },
