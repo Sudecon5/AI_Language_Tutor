@@ -1,10 +1,10 @@
 # AI Language Tutor
 <table style="width: 100%; border: none;">
   <tr>
-    <td><img src="WhatsApp Image 2026-07-28 at 20.03.53 (2).jpeg" width="180" height="135"></td>
-    <td><img src="WhatsApp Image 2026-07-28 at 20.03.54.jpeg" width="180" height="135"></td>
-    <td><img src="WhatsApp Image 2026-07-28 at 20.03.54 (1).jpeg" width="180" height="135"></td>
-    <td><img src="WhatsApp Image 2026-07-28 at 20.03.53.jpeg" width="180" height="135"></td>
+    <td><img src="WhatsApp Image 2026-07-28 at 20.03.53 (2).jpeg" width="500" height="135"></td>
+    <td><img src="WhatsApp Image 2026-07-28 at 20.03.54.jpeg" width="500" height="135"></td>
+    <td><img src="WhatsApp Image 2026-07-28 at 20.03.54 (1).jpeg" width="500" height="135"></td>
+    <td><img src="WhatsApp Image 2026-07-28 at 20.03.53.jpeg" width="500" height="135"></td>
   </tr>
 </table>
 
