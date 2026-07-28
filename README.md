@@ -1,5 +1,5 @@
 # AI Language Tutor
-<table style="width: 500%; border: none;">
+<table style="width: 800%; border: none;">
   <tr>
     <td><img src="WhatsApp Image 2026-07-28 at 20.03.53 (2).jpeg" width="500" height="500"></td>
     <td><img src="WhatsApp Image 2026-07-28 at 20.03.54.jpeg" width="500" height="500"></td>
