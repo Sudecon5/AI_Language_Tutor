@@ -1,5 +1,7 @@
 # AI Language Tutor
 
+
+
 An intelligent, full-stack language tutoring application built with **FastAPI**, **Flutter**, **Supabase**, and integrated AI capabilities.
 
 ##  Project Architecture
@@ -27,4 +29,5 @@ GROQ_API_KEY=your_groq_api_key
 
 The presentation of the app can be viewed on Youtube: https://www.youtube.com/shorts/3kZzGCXKlgU
 
-The mobile application can be downloaded and installed on android devices: 
+The mobile application can be downloaded and installed on android devices: https://github.com/Sudecon5/AI_Language_Tutor/releases/tag/v2.0.0 <= Please Download this file to view the app.
+
