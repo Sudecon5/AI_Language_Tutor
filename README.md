@@ -2,7 +2,7 @@
 
 An intelligent, full-stack language tutoring application built with **FastAPI**, **Flutter**, **Supabase**, and integrated AI capabilities.
 
-## 🚀 Project Architecture
+##  Project Architecture
 
 * **Backend (`/backend`)**: Python FastAPI server handling API routing, database models, and AI/Groq integrations.
 * **Frontend (`/frontend`)**: Cross-platform Flutter application supporting mobile and web interfaces.
@@ -10,7 +10,7 @@ An intelligent, full-stack language tutoring application built with **FastAPI**,
 
 ---
 
-## 🛠️ Getting Started Locally
+##  Getting Started Locally
 
 ### Prerequisites
 * Python 3.10+
@@ -23,3 +23,8 @@ Create a single unified `.env` file at the root of your project workspace with t
 SUPABASE_URL=your_supabase_url
 SUPABASE_ANON_KEY=your_supabase_anon_key
 GROQ_API_KEY=your_groq_api_key
+```
+
+The presentation of the app can be viewed on Youtube: https://www.youtube.com/shorts/3kZzGCXKlgU
+
+The mobile application can be downloaded and installed on android devices: 
