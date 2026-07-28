@@ -1,5 +1,5 @@
 # AI Language Tutor
-<img src="WhatsApp Image 2026-07-28 at 20.03.53 (2).jpeg" width="100" height="100">
+<img src="WhatsApp Image 2026-07-28 at 20.03.53 (2).jpeg" width="300" height="300">
 <img src="photo.png" width="300" height="200">
 <img src="photo.png" width="300" height="200">
 <img src="photo.png" width="300" height="200">
