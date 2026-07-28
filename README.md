@@ -1,4 +1,10 @@
 # AI Language Tutor
+<img src="photo.png" width="300" height="200">
+<img src="photo.png" width="300" height="200">
+<img src="photo.png" width="300" height="200">
+<img src="photo.png" width="300" height="200">
+<img src="photo.png" width="300" height="200">
+<img src="photo.png" width="300" height="200">
 
 
 
